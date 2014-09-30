@@ -1,0 +1,16 @@
+<h2>Create new post</h2>
+<a href="#posts">Back</a>
+
+<form id="#new_post_form" class="simple_form">
+<div class="inputs">
+  <label for="post_name">Title</label>
+  <input type="text" id="post_title">
+  <br/>
+  <label for="post_address">Content</label>
+  <textarea id="post_content" />
+</div>
+<div class="actions">
+  <input type="submit" value="Save" id="save_post" class="button">
+</div>
+
+</form>

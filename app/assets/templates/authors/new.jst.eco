@@ -1,0 +1,14 @@
+<h2>Create new author</h2>
+<a href="#authors">Back</a>
+
+<form id="#new_author_form" class="simple_form">
+<div class="inputs">
+  <label for="author_name">Name</label>
+  <input type="text" id="author_name">
+  <br/>
+</div>
+<div class="actions">
+  <input type="submit" value="Save" id="save_author" class="button">
+</div>
+
+</form>

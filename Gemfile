@@ -26,16 +26,16 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
-gem "rspec-rails" , '~> 2.14.1'
+gem "rspec-rails"
+gem 'faker'
+
 group :test do
   gem 'factory_girl_rails', '~> 4.3.0'
-  gem 'faker'
   gem 'shoulda-matchers'
-
 end
 
 
-gem 'jquery-rails'
+# gem 'jquery-rails'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

@@ -1,0 +1,15 @@
+<h1> Posts </h1>
+<a href="#posts/new" class="button">New post</a>
+<% if @posts.length: %>
+  <ul class="c-list">
+    <% for post in @posts: %>
+      <li class="post-item widget">
+        <div class="c-title">
+          <h4> <%= post.get("title") %> </h4>
+        </div>
+      </li>
+    <% end %>
+  </ul>
+<% else: %>
+  <h1>Looks like there're no Posts!</h1>
+<% end %>
