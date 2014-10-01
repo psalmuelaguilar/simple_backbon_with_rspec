@@ -12,12 +12,12 @@ class BasicBackbone.Routers.Posts extends Backbone.Router
 
   index: ->
     # console.log 'post index running'
-    view = new BasicBackbone.Views.PostsIndex
+    @view = new BasicBackbone.Views.PostsIndex
       el: $(".content"),
       collection: @posts,
       authors: @authors,
       router: @
-    view.render()
+    @view.render()
 
   new: ->
 

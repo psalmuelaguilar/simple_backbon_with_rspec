@@ -1,5 +1,5 @@
 class Post < ActiveRecord::Base
-  attr_accessible :author_id, :content, :permalink, :teaser, :title, :posttags_attributes, :post 
+  attr_accessible :author_id, :content, :permalink, :teaser, :title, :posttags_attributes 
   #validations
   validates :author_id, :content, :title, presence: true
   validates :title, uniqueness: true

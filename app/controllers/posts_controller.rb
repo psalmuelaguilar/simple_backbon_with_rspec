@@ -1,8 +1,12 @@
 class PostsController < ApplicationController
-  respond_to :json
-  
   def index
-    respond_with Post.all
+    posts = Post.includes(:author)
+    parsed_posts = posts.collect do |post|
+      Presenter::Post.parse(post)
+    end
+    render json: parsed_posts
+
+    # respond_with Post.all
   end
   
   def show

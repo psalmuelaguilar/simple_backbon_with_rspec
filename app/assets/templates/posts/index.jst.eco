@@ -1,15 +1,21 @@
-<h1> Posts </h1>
-<a href="#posts/new" class="button">New post</a>
 <% if @posts.length: %>
-  <ul class="c-list">
-    <% for post in @posts: %>
-      <li class="post-item widget">
-        <div class="c-title">
-          <h4> <%= post.get("title") %> </h4>
+<div class="category-page-posts animated fadeIn ">
+  <% for post in @posts: %>
+    <div class="post">
+      <section>
+        <div class="post-preview col-xs-10  no-gutter">
+          <h2><a href="#"> <%= post.get("title") %></a></h2>
+          <p><%= post.get("teaser") %> </p>
+          <p class="meta">
+            <% debugger %>
+            <a class="" href="category.html">by <%= post.author.get("name") %> </a> <i class="link-spacer"></i>
+          </p>
         </div>
-      </li>
-    <% end %>
-  </ul>
+      </section>
+    </div>
+  <% end %>
 <% else: %>
   <h1>Looks like there're no Posts!</h1>
 <% end %>
+
+<a href="#posts/new" class="btn btn-success">New post</a>
