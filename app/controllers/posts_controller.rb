@@ -10,7 +10,9 @@ class PostsController < ApplicationController
   end
   
   def create
-    respond_with Post.create(params[:post])
+    puts "$" * 100
+    puts params[:post]
+    respond_with Post.create!(params[:post])
   end
   
   def update

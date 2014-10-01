@@ -7,17 +7,25 @@ class BasicBackbone.Views.PostsNew extends Backbone.View
     "click #save_post": "savePost"
 
   render: =>
-    @$el.html(@template())
+    @$el.html(@template(authors: @authors.models))
     @
 
   initialize: ->
     @collection = @options.collection
+    @authors = @options.authors
+    @authors.on "all", @render, this
 
   savePost: (e) ->
-    attributes =
+    tags = @$("[name='hidden-tags']").val().split(",")
+    tagsAttributes = [] 
+    $.each tags, (index, value) ->
+      tagsAttributes.push({name: value})
+    attributes = 
       title: @$("#post_title").val()
       content: @$("#post_content").val()
-      author_id: "1"
+      author_id: @$("#post_author_id").val()
+      posttags_attributes: tagsAttributes
+    debugger
     @collection.create(attributes, {
         success: -> 
           alert('success')
@@ -28,4 +36,4 @@ class BasicBackbone.Views.PostsNew extends Backbone.View
           return
     });
 
-  renderError: ->
+

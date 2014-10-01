@@ -5,7 +5,13 @@ class Tag < ActiveRecord::Base
   has_many :posts, through: :posttags
 
   #validation 
-  validates :name, :uniqueness => {:case_sensitive => false}
+  validates :name, :uniqueness => {:case_sensitive => false}, presence: true
+  # before_save :downcaseTagName
+
+  # def downcaseTagName
+  #   self.name = self.name.downcase
+  # end
+
 
 
 end

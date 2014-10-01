@@ -6,13 +6,16 @@ class BasicBackbone.Routers.Posts extends Backbone.Router
 
   initialize: ->
     @posts = new BasicBackbone.Collections.Posts()
+    @authors = new BasicBackbone.Collections.Authors()
     @posts.fetch()
+    @authors.fetch()
 
   index: ->
     # console.log 'post index running'
     view = new BasicBackbone.Views.PostsIndex
       el: $(".content"),
       collection: @posts,
+      authors: @authors,
       router: @
     view.render()
 
@@ -22,6 +25,7 @@ class BasicBackbone.Routers.Posts extends Backbone.Router
     @view = new BasicBackbone.Views.PostsNew
       el: $(".content"),
       collection: @posts,
+      authors: @authors,
       router: @
     @view.render()
 

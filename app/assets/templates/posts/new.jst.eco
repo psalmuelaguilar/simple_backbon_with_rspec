@@ -8,9 +8,23 @@
   <br/>
   <label for="post_address">Content</label>
   <textarea id="post_content" />
+  <br/>
+  <label for="post_tag_name"> Tags </label>
+  <input type="text" name="tags" placeholder="Tags" class="tm-input">
+  <label for="post_author_id"> Author </label>
+  <select id="post_author_id"> 
+    <option value selected="selected">Select Author...</option>
+    <% for author in @authors: %> 
+      <option value="<%= author.get("id") %>"> <%= author.get("name") %></option> 
+    <% end %>
+  </select>
 </div>
 <div class="actions">
-  <input type="submit" value="Save" id="save_post" class="button">
+  <input type="submit" value="Save" id="save_post" class="button" onSubmit>
 </div>
 
 </form>
+
+<script type="text/javascript">
+    jQuery(".tm-input").tagsManager()
+</script>
