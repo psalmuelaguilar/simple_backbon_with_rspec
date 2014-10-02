@@ -1,9 +1,9 @@
 class BasicBackbone.Views.PostsIndex extends Backbone.View
 
   template: JST['posts/index']
- 	render: =>
+ 	
+  render: =>
     @$el.html(@template(posts: @collection.models))
-    debugger
     @
 
   initialize: ->

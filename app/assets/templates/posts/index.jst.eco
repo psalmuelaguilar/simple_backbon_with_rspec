@@ -7,8 +7,9 @@
           <h2><a href="#"> <%= post.get("title") %></a></h2>
           <p><%= post.get("teaser") %> </p>
           <p class="meta">
-            <% debugger %>
-            <a class="" href="category.html">by <%= post.author.get("name") %> </a> <i class="link-spacer"></i>
+            <a class="" href="category.html">by <%= post.author.get("name") %> </a>
+            <i class="link-spacer"></i>
+            <a href="#posts/<%= post.id %>" class="">show</a>
           </p>
         </div>
       </section>

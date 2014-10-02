@@ -25,15 +25,12 @@ class BasicBackbone.Views.PostsNew extends Backbone.View
       content: @$("#post_content").val()
       author_id: @$("#post_author_id").val()
       posttags_attributes: tagsAttributes
-    debugger
     @collection.create(attributes, {
         success: -> 
           alert('success')
           window.routerPosts.navigate("#posts", {trigger: true})
-          return
         error: ->
           alert('failed')
-          return
     });
 
 

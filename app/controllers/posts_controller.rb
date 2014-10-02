@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+  respond_to :json, except: :index
   def index
     posts = Post.includes(:author)
     parsed_posts = posts.collect do |post|
