@@ -6,11 +6,13 @@ class BasicBackbone.Routers.Posts extends Backbone.Router
     "posts/:id": "show"
 
 
+
   initialize: ->
     @posts = new BasicBackbone.Collections.Posts()
     @authors = new BasicBackbone.Collections.Authors()
     @posts.fetch()
     @authors.fetch()
+
   index: ->
     # console.log 'post index running'
     @view = new BasicBackbone.Views.PostsIndex
@@ -30,13 +32,13 @@ class BasicBackbone.Routers.Posts extends Backbone.Router
     @view.render()
 
   show: (id) ->
-    post = @posts.get(id)
-    view = new BasicBackbone.Views.PostsShow
-      el: $(".content"),
-      model: @post,
-      authors: @authors,
-      router: @
-    view.render()
+    console.log id
+    post = new BasicBackbone.Models.Post({id: id})
+    post.fetch(
+      success: =>
+        this.viewShowPost = new BasicBackbone.Views.PostsShow({model: post})
+        this.viewShowPost.render();
+    )
 
   edit: (id) ->
     @post = @posts.get(id)

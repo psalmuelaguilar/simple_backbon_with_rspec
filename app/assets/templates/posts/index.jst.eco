@@ -4,7 +4,7 @@
     <div class="post">
       <section>
         <div class="post-preview col-xs-10  no-gutter">
-          <h2><a href="#"> <%= post.get("title") %></a></h2>
+          <h2><a href="#posts/<%= post.id %>" class="view_post"> <%= post.get("title") %></a></h2>
           <p><%= post.get("teaser") %> </p>
           <p class="meta">
             <a class="" href="category.html">by <%= post.author.get("name") %> </a>

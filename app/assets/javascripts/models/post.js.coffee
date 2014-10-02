@@ -1,5 +1,11 @@
 class BasicBackbone.Models.Post extends Backbone.Model
-  urlRoot: '/posts'
+  url: ->
+    if (this.isNew())
+      this.urlRoot
+    else
+      this.urlRoot + this.get('id')
+
+  urlRoot: '/posts/'
 
   defaults:
     id: null
@@ -9,3 +15,5 @@ class BasicBackbone.Models.Post extends Backbone.Model
 
   initialize: ->
     @author = new BasicBackbone.Models.Author(@get('author'))
+    
+

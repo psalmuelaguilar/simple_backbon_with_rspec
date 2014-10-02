@@ -5,8 +5,8 @@ class BasicBackbone.Views.PostsShow extends Backbone.View
   el: '.content'
 
   initialize: ->
-    @render()
+    console.log("post show")
 
   render: ->
-    @$el.html(@template(@model))
+    @$el.html(@template({post: @model}))
     @
