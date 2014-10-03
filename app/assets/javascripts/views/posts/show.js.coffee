@@ -11,5 +11,5 @@ class BasicBackbone.Views.PostsShow extends Backbone.View
   initialize: ->
     @collection = @options.model
     @router = @options.router
-    @collection.on "all", @render, this
+
 

@@ -989,8 +989,31 @@ ol li {
   }
 }
 /* line 37, ../sass/partials/_shared.sass */
+
 .meta a {
   color: #b6b6b6;
+}
+
+.meta a.tag{
+  color: #fff;
+  background-color: #b6b6b6;
+  margin-right: 5px;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  padding-right: 2px;
+  padding-left: 2px;
+
+}
+
+.meta a.tag:hover{
+  color: #b6b6b6;
+  background-color: #fff;
+  margin-right: 5px;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  padding-right: 2px;
+  padding-left: 2px;
+
 }
 /* line 40, ../sass/partials/_shared.sass */
 .meta a:hover {

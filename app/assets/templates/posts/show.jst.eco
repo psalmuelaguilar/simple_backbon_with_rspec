@@ -2,12 +2,20 @@
   <br/>
   <br/>
   <p class="meta">
-    <a> <%= this.post.author.get("name") %> </a>
+    <a> <%= this.post.author.name %> </a>
     <i class="link-spacer"></i>
+    Tags: 
+  <% _.each this.post.tag, (tag) =>: %>
+  <% console.log tag.id %>
+
+    <a class="tag"> <%= tag.name %> </a>
+  <% end %>
+
+
   </p>
 
-  <h1> <%= this.post.model.get('title') %> </h1>
+  <h1> <%= this.post.model.title%> </h1>
   <p> 
-    <%= this.post.model.get('content') %>
+    <%= this.post.model.content %>
   </p>
 </div>

@@ -36,16 +36,22 @@ class BasicBackbone.Routers.Posts extends Backbone.Router
     console.log id
     @post = new BasicBackbone.Models.Post({id: id})
     @post.fetch(
-      success: =>
-        @author = new BasicBackbone.Models.Author({id: @post.get('author_id')})
-        @author.fetch(
-          success: =>
-            this.viewShowPost = new BasicBackbone.Views.PostsShow
-              model: @post,
-              author: @author,
-              router: @
-            this.viewShowPost.render();
-        )
+      success: (model, response, options)=>
+        this.viewShowPost = new BasicBackbone.Views.PostsShow
+          model: response,
+          author: response.author,
+          tag: response.tags
+        this.viewShowPost.render();
+        # @author = new BasicBackbone.Models.Author({id: @post.get('author_id')})
+        # @author.fetch(
+        #   success: =>
+        #     debugger
+        #     this.viewShowPost = new BasicBackbone.Views.PostsShow
+        #       model: @post,
+        #       author: @author,
+        #       router: @
+        #     this.viewShowPost.render();
+        # )
     )
 
   edit: (id) ->

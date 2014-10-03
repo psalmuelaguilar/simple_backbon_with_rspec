@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
-  respond_to :json, except: :index
+  respond_to :json, except: [:index, :show]
   def index
-    posts = Post.includes(:author)
+    posts = Post.includes([:author, posttags: :tag])
     parsed_posts = posts.collect do |post|
       Presenter::Post.parse(post)
     end
@@ -11,7 +11,9 @@ class PostsController < ApplicationController
   end
   
   def show
-    respond_with Post.find(params[:id])
+    # respond_with Post.find(params[:id])
+    post = Post.includes([:author, posttags: :tag]).find(params[:id])
+    render json: Presenter::Post.parse(post)
   end
   
   def create
