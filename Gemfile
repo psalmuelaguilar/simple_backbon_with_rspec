@@ -13,6 +13,8 @@ gem 'eco'
 gem 'bourbon'
 gem 'devise'
 gem 'omniauth'
+# gem 'will_paginate', '~> 3.0'
+gem 'kaminari'
 # Gems used only for assets and not required
 # in production environments by default.
 

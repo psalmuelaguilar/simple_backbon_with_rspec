@@ -1,6 +1,7 @@
 class BasicBackbone.Routers.Posts extends Backbone.Router
   routes:
     "posts": "index"
+    "posts?page=:param" : "index"
     "posts/new": "new"
     "posts/:id/edit": "edit"
     "posts/:id": "show"
@@ -10,18 +11,22 @@ class BasicBackbone.Routers.Posts extends Backbone.Router
   initialize: ->
     @posts = new BasicBackbone.Collections.Posts()
     @authors = new BasicBackbone.Collections.Authors()
-    @posts.fetch()
+    
     @authors.fetch()
 
-  index: ->
-    console.log 'post index running'
-    
-    @view = new BasicBackbone.Views.PostsIndex
-      el: $(".content"),
-      collection: @posts,
-      authors: @authors,
-      router: @
-    @view.render()
+  index: (params)->
+    if params
+      debugger
+      page = params.page
+      @view = new BasicBackbone.Views.PostsIndex
+        el: $(".content"),
+        collection: @posts,
+        authors: @authors,
+        router: @
+
+      @view.render()
+    else
+      this.navigate("/posts?page=1", {trigger: true})
 
   new: ->
     console.log 'post new running'
