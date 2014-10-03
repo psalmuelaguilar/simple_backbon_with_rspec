@@ -1,2 +1,13 @@
-<h1> show </h1>
-<%= this.post.get('title') %>
+<div class="col-xs-12 animated fadeIn category-page-posts">
+  <br/>
+  <br/>
+  <p class="meta">
+    <a> <%= this.post.author.get("name") %> </a>
+    <i class="link-spacer"></i>
+  </p>
+
+  <h1> <%= this.post.model.get('title') %> </h1>
+  <p> 
+    <%= this.post.model.get('content') %>
+  </p>
+</div>

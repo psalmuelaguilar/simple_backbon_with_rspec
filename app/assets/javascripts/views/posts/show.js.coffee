@@ -3,10 +3,13 @@ class BasicBackbone.Views.PostsShow extends Backbone.View
   template: JST['posts/show']
 
   el: '.content'
-
-  initialize: ->
-    console.log("post show")
-
+  
   render: ->
-    @$el.html(@template({post: @model}))
+    @$el.html(@template({post: @options}))
     @
+  
+  initialize: ->
+    @collection = @options.model
+    @router = @options.router
+    @collection.on "all", @render, this
+

@@ -1,6 +1,10 @@
 class BasicBackbone.Models.Author extends Backbone.Model
-  paramsRoot: "author"
-
+  url: ->
+    if (this.isNew())
+      this.urlRoot
+    else
+      this.urlRoot + this.get('id')
+  urlRoot: '/authors/'
   defaults:
     id: null
     name: null

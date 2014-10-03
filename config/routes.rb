@@ -2,6 +2,7 @@ BasicBackbone::Application.routes.draw do
   root to: "main#index"
   resources :posts
   resources :authors
+  resources :posttags
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
