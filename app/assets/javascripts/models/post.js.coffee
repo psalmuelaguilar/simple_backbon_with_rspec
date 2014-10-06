@@ -4,7 +4,6 @@ class BasicBackbone.Models.Post extends Backbone.Model
       this.urlRoot
     else
       this.urlRoot + this.get('id')
-
   urlRoot: '/posts/'
 
   defaults:

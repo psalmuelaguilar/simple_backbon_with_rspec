@@ -16,7 +16,7 @@ class PostsController < ApplicationController
       Presenter::Post.parse(post)
     end
     respond_to do |format|
-      format.json{render json: {models: parsed_posts, current_page: params[:page].to_i}}
+      format.json{render json: {models: parsed_posts, current_page: params[:page].to_i, total_pages: posts.num_pages}}
     end
 
     # respond_with Post.all

@@ -4,12 +4,7 @@
   <p class="meta">
     <a> <%= this.post.author.name %> </a>
     <i class="link-spacer"></i>
-    Tags: 
-  <% _.each this.post.tag, (tag) =>: %>
-  <% console.log tag.id %>
 
-    <a class="tag"> <%= tag.name %> </a>
-  <% end %>
 
 
   </p>
@@ -18,4 +13,13 @@
   <p> 
     <%= this.post.model.content %>
   </p>
+
+  <br/>
+    <div class="tags">
+    <% _.each this.post.tag, (tag) =>: %>
+        <a>  <%= tag.name %> </a>
+    <% end %>
+    </div>
+
+
 </div>

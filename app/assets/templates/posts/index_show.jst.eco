@@ -1,0 +1,14 @@
+<div class="category-page-posts animated fadeIn ">
+  <div class="post">
+    <section>
+      <div class="post-preview col-xs-10  no-gutter">
+        <h2><a href="#posts/<%= this.post.id %>" class="view_post"> <%= @post.title %></a></h2>
+        <p><%= @post.teaser %> </p>
+        <p class="meta">
+          <a class="" href="category.html">by <%= @post.author.name %> </a>
+          <i class="link-spacer"></i>
+        </p>
+      </div>
+    </section>
+  </div>
+</div>

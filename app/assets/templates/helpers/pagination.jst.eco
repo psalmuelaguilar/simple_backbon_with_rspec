@@ -1,0 +1,3 @@
+<a class="pagination" href="#posts?page=<%=this.previousPage()%>" id= 'page-prev' class="no-underline <%= 'disabled' if this.currentPage() is 1 %>"> Prev </a>
+
+<a class="pagination" href= '#posts?page=<%= this.nextPage() %>' id= 'page-next' class= "no-underline <%= 'disabled' if this.currentPage() is this.totalPages() %>" data={ page= '<%= this.currentPage() %>' }> Next </a>
