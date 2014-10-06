@@ -11,7 +11,7 @@ class PostsController < ApplicationController
   # end
   PER_PAGE_RECORDS = 3
   def index
-    posts = Post.includes([:author, posttags: :tag]).order('id').page(params[:page]).per(PER_PAGE_RECORDS)
+    posts = Post.includes([:author, posttags: :tag]).order('created_at DESC').page(params[:page]).per(PER_PAGE_RECORDS)
     parsed_posts = posts.collect do |post|
       Presenter::Post.parse(post)
     end

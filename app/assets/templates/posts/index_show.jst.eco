@@ -1,14 +1,31 @@
 <div class="category-page-posts animated fadeIn ">
-  <div class="post">
+  <div class="post col-sm-12">
     <section>
       <div class="post-preview col-xs-10  no-gutter">
-        <h2><a href="#posts/<%= this.post.id %>" class="view_post"> <%= @post.title %></a></h2>
+        <h2>
+          <a href="#posts/<%= this.post.id %>" class="view_post"> 
+            <%= @post.title %>
+          </a>
+        </h2>
         <p><%= @post.teaser %> </p>
         <p class="meta">
-          <a class="" href="category.html">by <%= @post.author.name %> </a>
+          <a class="" href="category.html">
+            by <%= @post.author.name %> 
+          </a>
           <i class="link-spacer"></i>
         </p>
       </div>
+      <br/>
+
     </section>
   </div>
+  <div class="tags col-sm-12">
+    <% _.each @post.tags, (tag) =>: %>
+        <a>  <%= tag.name %> </a>
+    <% end %>
+  </div>
+  <hr>
+  
+
 </div>
+

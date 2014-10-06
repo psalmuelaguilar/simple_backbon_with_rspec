@@ -40,8 +40,10 @@ class BasicBackbone.Views.PostsIndex extends Backbone.View
 
   template: JST['posts/index']
   pagination: JST['helpers/pagination']
+  navigation: JST['helpers/navigation']
 
   render: ->
+    $('.nav').html(@navigation)
     @$el.html @template _.extend(@, @helpers)
     @addOnebyOne @model.get('models')
     @$el.append $(@pagination(@))

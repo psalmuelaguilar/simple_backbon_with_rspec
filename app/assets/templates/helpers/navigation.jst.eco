@@ -1,0 +1,8 @@
+
+<a href="#posts" class= "select_posts <%= 'active' if Backbone.history.fragment is 'posts' %>">
+  Posts 
+</a>
+<a href="#authors" class= "select_authors <%= 'active' if Backbone.history.fragment is 'authors' %>"> 
+  Authors
+</a>
+

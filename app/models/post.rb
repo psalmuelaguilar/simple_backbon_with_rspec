@@ -1,6 +1,8 @@
 class Post < ActiveRecord::Base
   attr_accessible :author_id, :content, :permalink, :teaser, :title, :posttags_attributes 
   #validations
+  scope :tags_search, -> tags {includes(:tags).where("tags.id" => [tags])}
+
   validates :author_id, :content, :title, presence: true
   validates :title, uniqueness: true
   
