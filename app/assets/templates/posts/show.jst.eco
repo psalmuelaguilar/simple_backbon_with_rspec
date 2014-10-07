@@ -17,7 +17,7 @@
   <br/>
     <div class="tags">
     <% _.each this.post.tag, (tag) =>: %>
-        <a>  <%= tag.name %> </a>
+        <a href="#posts?&tags=<%= tag.id%>">  <%= tag.name %> </a>
     <% end %>
     </div>
 

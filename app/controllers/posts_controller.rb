@@ -11,10 +11,17 @@ class PostsController < ApplicationController
   # end
   PER_PAGE_RECORDS = 3
   def index
-    posts = Post.includes([:author, posttags: :tag]).order('created_at DESC').page(params[:page]).per(PER_PAGE_RECORDS)
+    if params[:tags].nil?
+      posts = Post.includes([:author, posttags: :tag]).order('created_at DESC').page(params[:page]).per(PER_PAGE_RECORDS)
+    else
+      puts params[:tags]
+      posts = Post.includes([:author, posttags: :tag]).tags_search(params[:tags]).page(params[:page]).per(PER_PAGE_RECORDS)
+    end
+    # binding.pry
     parsed_posts = posts.collect do |post|
       Presenter::Post.parse(post)
     end
+    # binding.pry
     respond_to do |format|
       format.json{render json: {models: parsed_posts, current_page: params[:page].to_i, total_pages: posts.num_pages}}
     end

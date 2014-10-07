@@ -1,7 +1,7 @@
 class BasicBackbone.Routers.Posts extends Backbone.Router
   routes:
     "posts": "index"
-    "posts?page=:page" : "index"
+    "posts?:params" : "index"
     "posts/new": "new"
     "posts/:id/edit": "edit"
     "posts/:id": "show"
@@ -13,19 +13,30 @@ class BasicBackbone.Routers.Posts extends Backbone.Router
     @authors = new BasicBackbone.Collections.Authors()
     @authors.fetch()
 
-  index: (page = 1)->
-      model = new BasicBackbone.Models.Post()
-      indexView = new BasicBackbone.Views.PostsIndex
-        model: model
-        el: $(".content")
-      indexView.model.fetch data: { page: page }
-      # page = params.page
-      # @view = new BasicBackbone.Views.PostsIndex                                           
-      #   el: $(".content"),
-      #   collection: @posts,
-      #   authors: @authors,
-      #   router: @
-      # @view.render()
+  index: (params)->
+    page = 1
+    if params
+      params = deparam(params)
+      if params.page
+        page = params.page
+      else
+        page = 1
+      if params.tags
+        tag = params.tags
+    model = new BasicBackbone.Models.Post()
+    indexView = new BasicBackbone.Views.PostsIndex
+      model: model
+      el: $(".content")    
+    indexView.model.fetch data:
+      page: page,
+      tags: tag
+    # page = params.page
+    # @view = new BasicBackbone.Views.PostsIndex                                           
+    #   el: $(".content"),
+    #   collection: @posts,
+    #   authors: @authors,
+    #   router: @
+    # @view.render()
 
   new: ->
     console.log 'post new running'
@@ -66,4 +77,5 @@ class BasicBackbone.Routers.Posts extends Backbone.Router
       authors: @authors,
       router: @
     view.render()
-    
+
+

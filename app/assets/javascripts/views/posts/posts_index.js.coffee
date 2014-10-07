@@ -10,8 +10,28 @@ class BasicBackbone.Views.PostsIndex extends Backbone.View
   #   @collection = @options.collection
   #   @router = @options.router
   #   @collection.on "all", @render, this
+  events: -> 
+    'click .tag-link' : 'changeUrl'
+
   initialize: ->
     @model.on "change", @render, @
+
+  changeUrl: (e) ->
+    # current_url_params = deparam(Backbone.history.fragment)
+
+    # delete current_url_params["posts?"]
+    # delete current_url_params["posts"]
+    # tag_id = e.currentTarget.dataset.tag
+    # if current_url_params.tags
+    #   debugger
+    # else
+    #   current_url = Backbone.history.fragment + "tags=" + tag_id
+
+    # debugger
+    # Backbone.history.navigate(Backbone.history.fragment, true)
+    # debugger
+
+
 
   helpers:
     blockPagination: ->

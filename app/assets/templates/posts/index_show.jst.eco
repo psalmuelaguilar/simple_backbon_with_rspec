@@ -20,8 +20,12 @@
     </section>
   </div>
   <div class="tags col-sm-12">
+
     <% _.each @post.tags, (tag) =>: %>
-        <a>  <%= tag.name %> </a>
+
+        <a class="tag-link" href="#posts?&tags=<%= tag.id%>" data-tag="<%= tag.id %>" >  
+          <%= tag.name %> 
+        </a>
     <% end %>
   </div>
   <hr>
